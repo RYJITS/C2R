@@ -1,0 +1,221 @@
+/* Styles pour le logo */
+.logo-container {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    z-index: 1000;
+    transition: all 0.8s ease-in-out;
+}
+
+.logo-background {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    z-index: -1;
+    overflow: visible;
+}
+
+.dot {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: rgba(255, 0, 0, 0.4);
+    border-radius: 50%;
+    transition: transform 0.2s ease-out, background-color 0.2s ease-out;
+    will-change: transform, background-color;
+}
+
+.dot.hover {
+    background-color: rgba(255, 0, 0, 0.6);
+}
+
+.dot.active {
+    background-color: rgba(255, 0, 0, 0.8);
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+    animation: redPulse 1s infinite;
+}
+
+.logo-container.moved .dot {
+    background-color: rgba(255, 0, 0, 0.8);
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes redPulse {
+    0% { background-color: rgba(255, 0, 0, 0.6); }
+    50% { background-color: rgba(255, 50, 50, 0.8); }
+    100% { background-color: rgba(255, 0, 0, 0.6); }
+}
+
+@keyframes whiteGradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes logoAppear {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    70% {
+        opacity: 0.7;
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes waveEffect {
+    0% {
+        transform: scale(1) translateY(0);
+    }
+    25% {
+        transform: scale(1.2) translateY(-2px);
+    }
+    50% {
+        transform: scale(1) translateY(0);
+    }
+}
+
+.logo {
+    font-size: 6rem;
+    font-weight: 800;
+    cursor: pointer;
+    color: white;
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.2),
+        0 0 20px rgba(255, 0, 0, 0.1),
+        0 0 40px rgba(255, 0, 0, 0.05);
+    letter-spacing: 2px;
+    position: relative;
+    font-family: 'Arial Black', sans-serif;
+    background: linear-gradient(300deg, 
+        white 0%,
+        white 50%,
+        white 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: white;
+    background-size: 200% auto;
+}
+
+.logo.white-text {
+    background: linear-gradient(300deg, 
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 0.9) 50%,
+        rgba(255, 255, 255, 1) 100%
+    );
+    background-size: 200% auto;
+    -webkit-text-fill-color: transparent;
+    animation: whiteGradientAnimation 3s ease infinite;
+    text-shadow: none;
+    letter-spacing: 3px;
+}
+
+.logo::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: radial-gradient(circle at center, rgba(255, 0, 0, 0.1) 0%, transparent 70%);
+    filter: blur(10px);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.logo:hover::before {
+    opacity: 1;
+}
+
+.logo-text-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(300deg, 
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 0.9) 50%,
+        rgba(255, 255, 255, 1) 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    opacity: 0;
+    transform: translateZ(0);
+    transition: opacity 0.3s ease-out;
+    pointer-events: none;
+}
+
+.logo.white-text .logo-text-effect {
+    opacity: 1;
+    animation: whiteGradientAnimation 3s ease infinite;
+}
+
+.logo-container.moved {
+    top: 20px;
+    left: 20px;
+    width: auto;
+    height: auto;
+}
+
+.logo-container.moved .logo {
+    font-size: 3rem;
+    letter-spacing: 1px;
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.15),
+        0 0 10px rgba(255, 0, 0, 0.1);
+}
+
+/* État initial des éléments à cacher */
+.sidebar-icons,
+.sidebar-right,
+main section {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+/* État des éléments après le clic sur le logo */
+body.content-visible .sidebar-icons,
+body.content-visible .sidebar-right,
+body.content-visible main section {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .logo {
+        font-size: 4.5rem;
+        letter-spacing: 1.5px;
+    }
+    
+    .logo-container.moved .logo {
+        font-size: 2rem;
+        letter-spacing: 0.5px;
+    }
+}

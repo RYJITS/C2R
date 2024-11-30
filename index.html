@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>C2R Innovation & Design</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Bibliothèques CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+    <!-- Nos styles CSS -->
+    <link rel="stylesheet" href="css/shared/reset.css">
+    <link rel="stylesheet" href="css/shared/animations.css">
+    <link rel="stylesheet" href="css/opening.css">
+    <link rel="stylesheet" href="css/logo.css">
+    <link rel="stylesheet" href="css/sidebar-icons.css">
+    <link rel="stylesheet" href="css/sidebar-right.css">
+</head>
+<body>
+        <!-- Animation d'ouverture -->
+        <div class="opening-animation"></div>
+    <!-- Logo C2R -->
+    <div class="logo-container">
+        <div class="logo-background"></div>
+        <div class="logo">C2R</div>
+    </div>
+
+    <!-- Barre d'icônes verticale -->
+    <nav class="sidebar-icons" data-aos="fade-right">
+        <ul>
+            <li data-section="about" data-tooltip="À propos" data-aos="fade-right" data-aos-delay="100">
+                <i class="fas fa-info-circle"></i>
+            </li>
+            <li data-section="portfolio" data-tooltip="Portfolio" data-aos="fade-right" data-aos-delay="200">
+                <i class="fas fa-images"></i>
+            </li>
+            <li data-section="training" data-tooltip="Formations" data-aos="fade-right" data-aos-delay="300">
+                <i class="fas fa-graduation-cap"></i>
+            </li>
+            <li data-section="services" data-tooltip="Services" data-aos="fade-right" data-aos-delay="400">
+                <i class="fas fa-cogs"></i>
+            </li>
+            <li data-section="contact" data-tooltip="Contact" data-aos="fade-right" data-aos-delay="500">
+                <i class="fas fa-envelope"></i>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Barre latérale droite -->
+    <aside class="sidebar-right">
+        <button class="close-sidebar">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <!-- Conteneur pour le contenu dynamique -->
+        <div class="sidebar-content">
+            <!-- Section À propos -->
+            <section id="about" class="section" data-aos="fade-left">
+                <h2 class="animate__animated animate__fadeInDown">À propos</h2>
+                <p data-aos="fade-up" data-aos-delay="200">Contenu de la section À propos...</p>
+            </section>
+
+            <!-- Section Portfolio -->
+            <section id="portfolio" class="section" data-aos="fade-left">
+                <h2 class="animate__animated animate__fadeInDown">Portfolio</h2>
+                <p data-aos="fade-up" data-aos-delay="200">Contenu de la section Portfolio...</p>
+            </section>
+
+            <!-- Section Formations -->
+            <section id="training" class="section" data-aos="fade-left">
+                <h2 class="animate__animated animate__fadeInDown">Formations</h2>
+                <p data-aos="fade-up" data-aos-delay="200">Contenu de la section Formations...</p>
+            </section>
+
+            <!-- Section Services -->
+            <section id="services" class="section" data-aos="fade-left">
+                <h2 class="animate__animated animate__fadeInDown">Services</h2>
+                <p data-aos="fade-up" data-aos-delay="200">Contenu de la section Services...</p>
+            </section>
+
+            <!-- Section Contact -->
+            <section id="contact" class="section" data-aos="fade-left">
+                <h2 class="animate__animated animate__fadeInDown">Contact</h2>
+                <p data-aos="fade-up" data-aos-delay="200">Contenu de la section Contact...</p>
+            </section>
+        </div>
+    </aside>
+
+    <!-- Scripts JavaScript -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="js/opening.js"></script>
+    <script src="js/logo.js"></script>
+    <script src="js/sidebar-icons.js"></script>
+    <script src="js/sidebar-right.js"></script>
+    <script src="js/vibration.js"></script>
+    
+    <!-- Initialisation AOS -->
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+    <script>
+        // Activer la vibration dès que possible
+        document.addEventListener('touchstart', function() {
+            // Essayer d'activer la vibration
+            if (typeof navigator.vibrate === "function") {
+                navigator.vibrate(1);
+            }
+        }, { once: true });
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+/* Animations globales */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+.slide-in-right {
+    animation: slideInRight 0.5s ease-in-out;
+}
+
+.slide-out-right {
+    animation: slideOutRight 0.5s ease-in-out;
+}
+
+/* Animation pour le logo */
+@keyframes moveToCorner {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+}
+
+/* Animation pour la barre latérale */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+
+/* Animation pour les icônes */
+@keyframes iconHover {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes iconSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
