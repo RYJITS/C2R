@@ -142,21 +142,21 @@
 
 /* Style des réseaux sociaux */
 .social-links {
-    margin-top: 40px;
+    margin-top: 30px;
     text-align: center;
-    padding: 20px;
-}
-
-.social-links h3 {
-    color: #fff;
-    margin-bottom: 20px;
-    font-size: 1.2em;
+    padding: 10px;
 }
 
 .social-icons {
     display: flex;
     justify-content: center;
     gap: 20px;
+}
+
+.social-links h3 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 1.2em;
 }
 
 .social-icon {
@@ -194,9 +194,24 @@
     .sidebar-right {
         width: calc(100% - 60px); /* Laisse de l'espace pour la barre d'icônes */
         right: -100%;
+        padding: 5px 10px 20px 5px; /* Réduit la marge supérieure à 5px */
+    }
+
+    .close-btn {
+        display: none; /* Cache le bouton X en mode mobile */
+    }
+
+    .sidebar-content {
+        margin-top: 0; /* Supprime la marge supérieure */
+        padding-left: 5px; /* Réduit l'espace à gauche du contenu */
     }
 
     .section h2 {
+        margin-top: 0; /* Supprime la marge supérieure des titres */
         font-size: 1.5rem;
+    }
+
+    .contact-form {
+        padding: 10px 5px; /* Réduit les marges du formulaire */
     }
 }

@@ -24,6 +24,14 @@ document.addEventListener('DOMContentLoaded', function() {
         section.style.display = 'none';
     });
 
+    // Fonction pour réinitialiser la couleur de toutes les icônes
+    function resetIconColors() {
+        icons.forEach(icon => {
+            const iconElement = icon.querySelector('i');
+            iconElement.style.color = '#fff';
+        });
+    }
+
     // Gestionnaire d'événements pour chaque icône
     icons.forEach(icon => {
         // Gérer à la fois les clics et les événements tactiles
@@ -52,6 +60,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     sections.forEach(section => {
                         section.style.display = 'none';
                     });
+                    // Réinitialiser toutes les icônes en blanc
+                    resetIconColors();
                 } else {
                     // Ouvrir la barre latérale avec la nouvelle section
                     sidebarRight.classList.add('open');
@@ -64,9 +74,21 @@ document.addEventListener('DOMContentLoaded', function() {
                             targetSection.style.display = 'block';
                         }
                     }
+                    // Réinitialiser d'abord toutes les icônes en blanc
+                    resetIconColors();
+                    // Colorer l'icône active en rouge
+                    const iconElement = this.querySelector('i');
+                    iconElement.style.color = '#ff1f1f';
                     activeIcon = this;
                 }
             });
         });
+    });
+
+    // Écouter la fermeture de la barre latérale (si fermée par le X)
+    sidebarRight.addEventListener('transitionend', function(e) {
+        if (!this.classList.contains('open')) {
+            resetIconColors();
+        }
     });
 });
