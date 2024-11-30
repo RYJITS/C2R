@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Sélection des éléments
     const sidebarRight = document.querySelector('.sidebar-right');
-    const closeButton = document.querySelector('.close-sidebar');
+    const closeButton = document.querySelector('.close-btn');
     const logoContainer = document.querySelector('.logo-container');
     const logoText = document.querySelector('.logo');
     const isMobile = window.matchMedia('(max-width: 768px)').matches;
@@ -95,4 +95,42 @@ document.addEventListener('DOMContentLoaded', function() {
             location.reload();
         }
     });
+
+    // Gestionnaire de formulaire
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Animation du bouton
+            const submitBtn = this.querySelector('.submit-btn');
+            submitBtn.style.width = '50px';
+            submitBtn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i>';
+            
+            // Récupération des données du formulaire
+            const formData = {
+                name: this.querySelector('#name').value,
+                email: this.querySelector('#email').value,
+                phone: this.querySelector('#phone').value,
+                message: this.querySelector('#message').value
+            };
+            
+            // Ici vous pouvez ajouter votre logique d'envoi de formulaire
+            // Par exemple, envoi à un serveur ou à une API
+            
+            // Simulation d'envoi (à remplacer par votre logique d'envoi réelle)
+            setTimeout(() => {
+                submitBtn.style.backgroundColor = '#4CAF50';
+                submitBtn.innerHTML = '<i class="fas fa-check"></i>';
+                
+                // Réinitialisation du formulaire après 2 secondes
+                setTimeout(() => {
+                    submitBtn.style.width = '100%';
+                    submitBtn.style.backgroundColor = '#ff1f1f';
+                    submitBtn.innerHTML = 'Envoyer';
+                    contactForm.reset();
+                }, 2000);
+            }, 1500);
+        });
+    }
 });

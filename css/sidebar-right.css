@@ -21,26 +21,20 @@
 }
 
 /* Bouton de fermeture */
-.close-sidebar {
+.close-btn {
     position: absolute;
-    top: 20px;
+    top: 50px; /* Aligné avec le logo C2R */
     right: 20px;
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 1.5rem;
+    width: 30px;
+    height: 30px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    padding: 10px;
-    z-index: 2001; /* Au-dessus de la barre latérale */
-    width: 40px;
-    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 2200; /* Au-dessus de la barre latérale */
 }
 
-.close-sidebar:hover {
+.close-btn:hover {
     color: #ff1f1f;
     transform: scale(1.1);
 }
@@ -63,6 +57,124 @@
     color: #ff1f1f;
     margin-bottom: 1.5rem;
     font-size: 2rem;
+}
+
+/* Style du formulaire de contact */
+.contact-form {
+    padding: 20px;
+    width: 100%;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    background: transparent;
+    color: #fff;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-group label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-bottom-color: #ff1f1f;
+    outline: none;
+}
+
+.form-group input:focus + label,
+.form-group textarea:focus + label,
+.form-group input:valid + label,
+.form-group textarea:valid + label {
+    top: -20px;
+    font-size: 12px;
+    color: #ff1f1f;
+}
+
+.submit-btn {
+    background: #ff1f1f;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.submit-btn:hover {
+    background: #ff4444;
+    transform: translateY(-2px);
+}
+
+/* Style des réseaux sociaux */
+.social-links {
+    margin-top: 40px;
+    text-align: center;
+    padding: 20px;
+}
+
+.social-links h3 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icon {
+    color: #fff;
+    font-size: 24px;
+    transition: all 0.3s ease;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icon:hover {
+    color: #ff1f1f;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+/* Styles spécifiques pour chaque réseau social */
+.fa-telegram:hover { color: #0088cc; }
+.fa-whatsapp:hover { color: #25D366; }
+.fa-tiktok:hover { color: #ff0050; }
+.fa-instagram:hover { 
+    background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* Responsive design */

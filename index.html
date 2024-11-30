@@ -53,9 +53,9 @@
 
     <!-- Barre latérale droite -->
     <aside class="sidebar-right">
-        <button class="close-sidebar">
+        <div class="close-btn">
             <i class="fas fa-times"></i>
-        </button>
+        </div>
         
         <!-- Conteneur pour le contenu dynamique -->
         <div class="sidebar-content">
@@ -86,7 +86,44 @@
             <!-- Section Contact -->
             <section id="contact" class="section" data-aos="fade-left">
                 <h2 class="animate__animated animate__fadeInDown">Contact</h2>
-                <p data-aos="fade-up" data-aos-delay="200">Contenu de la section Contact...</p>
+                <form id="contact-form" class="contact-form" data-aos="fade-up" data-aos-delay="200">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" required>
+                        <label for="name">Nom</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" required>
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone">
+                        <label for="phone">Téléphone (optionnel)</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" required></textarea>
+                        <label for="message">Message</label>
+                    </div>
+                    <button type="submit" class="submit-btn">Envoyer</button>
+                </form>
+
+                <!-- Réseaux sociaux -->
+                <div class="social-links" data-aos="fade-up" data-aos-delay="300">
+                    <h3>Suivez-nous</h3>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" target="_blank">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="#" class="social-icon" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#" class="social-icon" target="_blank">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="#" class="social-icon" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
             </section>
         </div>
     </aside>
