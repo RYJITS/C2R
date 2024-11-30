@@ -1,3 +1,4 @@
+// Version 2.0 - Sans bouton de test
 // Fonction simple de vibration
 function doVibrate() {
     // Pattern : vibrer 200ms, pause 100ms, vibrer 200ms
