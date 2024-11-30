@@ -219,3 +219,22 @@ body.content-visible main section {
         letter-spacing: 0.5px;
     }
 }
+
+/* Ajustement pour mobile */
+@media screen and (max-width: 768px) {
+    .logo-container {
+        justify-content: flex-start;
+        padding-left: 80px; /* Espace pour la barre d'icônes */
+        height: auto;
+        top: 20px; /* Légèrement plus bas que le haut */
+    }
+
+    .logo-background {
+        width: 200px; /* Plus petit sur mobile */
+        height: 200px;
+    }
+
+    .logo {
+        font-size: 2.5em; /* Ajuster la taille du texte si nécessaire */
+    }
+}
