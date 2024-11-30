@@ -111,7 +111,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const formData = {
                 name: this.querySelector('#name').value,
                 email: this.querySelector('#email').value,
-                phone: this.querySelector('#phone').value,
                 message: this.querySelector('#message').value
             };
             

@@ -25,8 +25,8 @@
     position: absolute;
     top: 50px; /* Aligné avec le logo C2R */
     right: 20px;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -34,9 +34,20 @@
     z-index: 2200; /* Au-dessus de la barre latérale */
 }
 
+.close-btn i {
+    font-size: 2rem; /* Augmentation de la taille de l'icône X */
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
 .close-btn:hover {
     color: #ff1f1f;
     transform: scale(1.1);
+}
+
+.close-btn:hover i {
+    color: #ff1f1f;
+    transform: scale(1.2);
 }
 
 /* Contenu de la barre latérale */
@@ -159,6 +170,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    text-decoration: none; /* Retire le soulignement */
 }
 
 .social-icon:hover {

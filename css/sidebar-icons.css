@@ -114,3 +114,14 @@ body.content-visible .sidebar-icons li:nth-child(5) { animation-delay: 0.5s; }
         font-size: 14px;
     }
 }
+
+/* Styles pour mobile */
+@media screen and (max-width: 768px) {
+    .sidebar-icons li::after {
+        display: none; /* Cache le texte des icônes sur mobile */
+    }
+    
+    .sidebar-icons {
+        width: 60px; /* Réduire la largeur puisqu'il n'y a plus de texte */
+    }
+}
