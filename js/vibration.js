@@ -24,30 +24,4 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
-    
-    // Créer le bouton de test
-    const testButton = document.createElement('button');
-    testButton.innerHTML = 'Tester Vibration';
-    testButton.style.cssText = `
-        position: fixed;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        padding: 10px 20px;
-        background: red;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        z-index: 9999;
-    `;
-    
-    // Ajouter le gestionnaire d'événements au bouton
-    testButton.addEventListener('touchstart', function(e) {
-        e.preventDefault();
-        doVibrate();
-        console.log('Tentative de vibration...');
-    });
-    
-    // Ajouter le bouton à la page
-    document.body.appendChild(testButton);
 });
