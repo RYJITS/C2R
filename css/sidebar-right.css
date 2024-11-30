@@ -194,7 +194,7 @@
     .sidebar-right {
         width: calc(100% - 60px); /* Laisse de l'espace pour la barre d'icônes */
         right: -100%;
-        padding: 5px 10px 20px 5px; /* Réduit la marge supérieure à 5px */
+        padding: 8px 10px 20px 5px; /* Augmenté de 5px à 8px */
     }
 
     .close-btn {
@@ -207,7 +207,7 @@
     }
 
     .section h2 {
-        margin-top: 0; /* Supprime la marge supérieure des titres */
+        margin-top: 3px; /* Ajout d'une petite marge en haut du titre */
         font-size: 1.5rem;
     }
 
