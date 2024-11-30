@@ -258,9 +258,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 animationFrame = requestAnimationFrame(updateDots);
             }, 100);
         } else {
+            // Réinitialiser toutes les propriétés de style inline
+            logoContainer.style.top = '';
+            logoContainer.style.left = '';
+            logoContainer.style.width = '';
+            logoContainer.style.display = '';
+            logoContainer.style.justifyContent = '';
+            logoContainer.style.alignItems = '';
+            
+            // Réinitialiser les propriétés du texte
+            logo.style.transform = '';
+            logo.style.transition = '';
+            logo.style.marginLeft = '';
+            
+            // Retirer les classes
             logoContainer.classList.remove('moved');
             document.body.classList.remove('content-visible');
             isLogoMoved = false;
+            
             if (!animationFrame) {
                 animationFrame = requestAnimationFrame(updateDots);
             }

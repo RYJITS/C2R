@@ -5,11 +5,14 @@
     right: -400px; /* Caché par défaut */
     width: 400px;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.95);
-    z-index: 800;
+    background-color: rgba(0, 0, 0, 0.3); /* Augmenté la transparence (0.3 = 70% transparent) */
+    backdrop-filter: blur(5px); /* Ajout d'un effet de flou pour améliorer la lisibilité */
+    z-index: 2000; /* Augmenté pour être au-dessus du logo */
     padding: 20px;
     transition: right 0.5s ease;
     overflow-y: auto;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
 }
 
 /* Barre latérale ouverte */
@@ -22,14 +25,24 @@
     position: absolute;
     top: 20px;
     right: 20px;
+    background: none;
+    border: none;
     color: #fff;
     font-size: 1.5rem;
     cursor: pointer;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    padding: 10px;
+    z-index: 2001; /* Au-dessus de la barre latérale */
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .close-sidebar:hover {
     color: #ff1f1f;
+    transform: scale(1.1);
 }
 
 /* Contenu de la barre latérale */

@@ -18,23 +18,31 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Gestionnaire de clic pour chaque icône
+    // Gestionnaire d'événements pour chaque icône
     icons.forEach(icon => {
-        icon.addEventListener('click', function() {
-            // Retirer la classe active de toutes les icônes
-            icons.forEach(i => i.classList.remove('active'));
-            
-            // Ajouter la classe active à l'icône cliquée
-            this.classList.add('active');
-            
-            // Récupérer l'ID de la section
-            const sectionId = this.getAttribute('data-section');
-            
-            // Ouvrir la barre latérale
-            sidebarRight.classList.add('open');
-            
-            // Activer la section correspondante
-            activateSection(sectionId);
+        // Gérer à la fois les clics et les événements tactiles
+        ['click', 'touchstart'].forEach(eventType => {
+            icon.addEventListener(eventType, function(e) {
+                // Empêcher le double événement sur les appareils tactiles
+                if (eventType === 'touchstart') {
+                    e.preventDefault();
+                }
+
+                // Retirer la classe active de toutes les icônes
+                icons.forEach(i => i.classList.remove('active'));
+                
+                // Ajouter la classe active à l'icône cliquée
+                this.classList.add('active');
+                
+                // Récupérer l'ID de la section
+                const sectionId = this.getAttribute('data-section');
+                
+                // Ouvrir la barre latérale
+                sidebarRight.classList.add('open');
+                
+                // Activer la section correspondante
+                activateSection(sectionId);
+            });
         });
     });
 });
