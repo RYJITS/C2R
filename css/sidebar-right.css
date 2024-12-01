@@ -197,6 +197,18 @@
     -webkit-text-fill-color: transparent;
 }
 
+/* Support pour le notch iPhone */
+@supports (padding-top: env(safe-area-inset-top)) {
+    @media screen and (max-width: 768px) {
+        .sidebar-right {
+            padding-top: env(safe-area-inset-top);
+        }
+        .sidebar-right .content {
+            padding-top: calc(120px + env(safe-area-inset-top));
+        }
+    }
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
     .sidebar-right {
