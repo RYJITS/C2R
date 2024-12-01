@@ -37,6 +37,9 @@
     font-size: 2rem;
     color: #fff;
     transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+    border-radius: 50%;
 }
 
 /* Effet de survol */
@@ -84,6 +87,124 @@ body.content-visible .sidebar-icons li:nth-child(2) { animation-delay: 0.2s; }
 body.content-visible .sidebar-icons li:nth-child(3) { animation-delay: 0.3s; }
 body.content-visible .sidebar-icons li:nth-child(4) { animation-delay: 0.4s; }
 body.content-visible .sidebar-icons li:nth-child(5) { animation-delay: 0.5s; }
+
+/* Animation simple de grossissement */
+@keyframes simpleScale {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.icon-scale {
+    animation: simpleScale 1s ease-in-out infinite;
+    transform-origin: center;
+}
+
+/* Animation avec déformation élastique */
+@keyframes elasticScale {
+    0%, 100% {
+        transform: scale(1) skew(0deg);
+    }
+    30% {
+        transform: scale(1.3) skew(-5deg);
+    }
+    40% {
+        transform: scale(1.2) skew(3deg);
+    }
+    50% {
+        transform: scale(1.25) skew(-2deg);
+    }
+    65% {
+        transform: scale(1.15) skew(1deg);
+    }
+    85% {
+        transform: scale(1.05) skew(0deg);
+    }
+}
+
+.icon-elastic {
+    animation: elasticScale 3s ease-in-out infinite;
+    transform-origin: center;
+}
+
+/* Animation effet bulle */
+@keyframes bubble {
+    0%, 100% {
+        transform: scale(1);
+        border-radius: 50%;
+    }
+    30% {
+        transform: scale(1.2) scaleY(1.15);
+        border-radius: 45%;
+    }
+    40% {
+        transform: scale(1.15) scaleY(1.25);
+        border-radius: 42%;
+    }
+    50% {
+        transform: scale(1.25) scaleY(1.15);
+        border-radius: 48%;
+    }
+    60% {
+        transform: scale(1.2) scaleY(1.1);
+        border-radius: 45%;
+    }
+    80% {
+        transform: scale(1.1);
+        border-radius: 50%;
+    }
+}
+
+.icon-bubble {
+    animation: bubble 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    transform-origin: center;
+}
+
+/* Animation douce avec pause naturelle */
+@keyframes elegant {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+        animation-timing-function: ease-out;
+    }
+    20% {
+        transform: scale(1.15) rotate(8deg);
+        animation-timing-function: ease-in-out;
+    }
+    40% {
+        transform: scale(1) rotate(0deg);
+        animation-timing-function: ease-in;
+    }
+}
+
+.icon-elegant {
+    animation: elegant 6s infinite;
+    transform-origin: center;
+}
+
+/* Style de base pour les icônes */
+.sidebar-icons li i {
+    position: relative;
+    z-index: 1;
+    transform-origin: center;
+    display: inline-block;
+}
+
+/* Suppression des anciennes animations */
+.icon-ripple,
+.icon-wave,
+.icon-bounce,
+.icon-pulse,
+.icon-scale,
+.icon-elastic,
+.icon-bubble {
+    animation: none;
+}
 
 /* Responsive design */
 @media screen and (max-width: 768px) {

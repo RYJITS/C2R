@@ -29,6 +29,14 @@ document.addEventListener('DOMContentLoaded', function() {
         icons.forEach(icon => {
             const iconElement = icon.querySelector('i');
             iconElement.style.color = '#fff';
+            iconElement.classList.remove('icon-pulse');
+            iconElement.classList.remove('icon-bounce');
+            iconElement.classList.remove('icon-wave');
+            iconElement.classList.remove('icon-ripple');
+            iconElement.classList.remove('icon-scale');
+            iconElement.classList.remove('icon-elastic');
+            iconElement.classList.remove('icon-bubble');
+            iconElement.classList.remove('icon-elegant');
         });
     }
 
@@ -76,9 +84,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                     // Réinitialiser d'abord toutes les icônes en blanc
                     resetIconColors();
-                    // Colorer l'icône active en rouge
+                    // Colorer l'icône active en rouge et ajouter l'effet élégant
                     const iconElement = this.querySelector('i');
                     iconElement.style.color = '#ff1f1f';
+                    iconElement.classList.add('icon-elegant');
                     activeIcon = this;
                 }
             });
