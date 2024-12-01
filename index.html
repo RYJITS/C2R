@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="css/logo.css">
     <link rel="stylesheet" href="css/sidebar-icons.css">
     <link rel="stylesheet" href="css/sidebar-right.css">
+    <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
         <!-- Animation d'ouverture -->
@@ -123,6 +124,12 @@
         </div>
     </aside>
 
+    <!-- Footer -->
+    <footer class="footer">
+        <p> 2024 C2R Innovation & Design. Tous droits réservés.</p>
+        <p>Dernière mise à jour : <span id="lastUpdate"></span></p>
+    </footer>
+
     <!-- Scripts JavaScript -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="js/opening.js"></script>
@@ -146,6 +153,21 @@
                 navigator.vibrate(1);
             }
         }, { once: true });
+    </script>
+    <script>
+        // Mettre à jour la date et l'heure
+        function updateLastModified() {
+            const options = { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            };
+            const date = new Date(document.lastModified);
+            document.getElementById('lastUpdate').textContent = date.toLocaleDateString('fr-FR', options);
+        }
+        updateLastModified();
     </script>
 </body>
 </html>
