@@ -197,33 +197,37 @@
     -webkit-text-fill-color: transparent;
 }
 
-/* Support pour le notch iPhone */
+/* Support amélioré pour le notch iPhone */
 @supports (padding-top: env(safe-area-inset-top)) {
     @media screen and (max-width: 768px) {
-        .sidebar-right {
-            padding-top: env(safe-area-inset-top);
-        }
-        .sidebar-right .content {
-            padding-top: calc(120px + env(safe-area-inset-top));
-        }
-    }
-}
-
-/* Support pour le mode standalone sur iOS */
-@media screen and (max-width: 768px) {
-    @supports (padding-top: env(safe-area-inset-top)) {
-        .sidebar-right {
+        body {
             padding-top: env(safe-area-inset-top);
         }
         
-        /* Mode application */
+        .sidebar-right {
+            padding-top: env(safe-area-inset-top);
+            margin-top: env(safe-area-inset-top);
+            height: calc(100% - env(safe-area-inset-top));
+        }
+
+        .sidebar-right .content {
+            padding-top: calc(80px + env(safe-area-inset-top));
+        }
+
+        /* Mode standalone spécifique */
         @media all and (display-mode: standalone) {
             .sidebar-right {
                 padding-top: env(safe-area-inset-top);
-                min-height: calc(100vh + env(safe-area-inset-top));
+                margin-top: env(safe-area-inset-top);
+                min-height: calc(100vh - env(safe-area-inset-top));
             }
+            
             .sidebar-right .content {
-                padding-top: calc(120px + env(safe-area-inset-top));
+                padding-top: calc(80px + env(safe-area-inset-top));
+            }
+
+            .sidebar-right .content h2 {
+                padding-top: calc(20px + env(safe-area-inset-top));
             }
         }
     }

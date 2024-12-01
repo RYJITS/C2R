@@ -130,7 +130,7 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <p> 2024 C2R Innovation & Design. Tous droits réservés.</p>
+        <p>&copy; 2024 C2R Innovation & Design. Tous droits réservés.</p>
         <p>Dernière mise à jour : <span id="lastUpdate"></span></p>
     </footer>
 
@@ -161,15 +161,17 @@
     <script>
         // Mettre à jour la date et l'heure
         function updateLastModified() {
-            const options = { 
+            const date = new Date(document.lastModified);
+            const jour = date.toLocaleDateString('fr-FR', { 
                 year: 'numeric', 
                 month: 'long', 
-                day: 'numeric',
+                day: 'numeric'
+            });
+            const heure = date.toLocaleTimeString('fr-FR', {
                 hour: '2-digit',
                 minute: '2-digit'
-            };
-            const date = new Date(document.lastModified);
-            document.getElementById('lastUpdate').textContent = date.toLocaleDateString('fr-FR', options);
+            });
+            document.getElementById('lastUpdate').textContent = `${jour} à ${heure}`;
         }
         updateLastModified();
     </script>
