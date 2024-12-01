@@ -91,11 +91,7 @@
             <!-- Section Contact -->
             <section id="contact" class="section" data-aos="fade-left">
                 <h2 class="animate__animated animate__fadeInDown">Contact</h2>
-                <form id="contact-form" action="https://formsubmit.co/e52c3a79d2f8b8d7b9d2a9f65c88d0c6" method="POST" class="contact-form" data-aos="fade-up" data-aos-delay="200">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_next" value="https://ryjits.github.io/C2R/thanks.html">
-                    <input type="hidden" name="_subject" value="Nouveau message de C2R Website!">
-                    <input type="hidden" name="_template" value="table">
+                <form id="contact-form" class="contact-form" data-aos="fade-up" data-aos-delay="200" onsubmit="return submitForm(event)">
                     <div class="form-group">
                         <input type="text" id="name" name="name" required>
                         <label for="name">Nom</label>
@@ -110,6 +106,39 @@
                     </div>
                     <button type="submit" class="submit-btn">Envoyer</button>
                 </form>
+
+                <script>
+                    function submitForm(event) {
+                        event.preventDefault();
+                        
+                        const formData = new FormData();
+                        formData.append('name', document.getElementById('name').value);
+                        formData.append('email', document.getElementById('email').value);
+                        formData.append('message', document.getElementById('message').value);
+                        formData.append('_captcha', 'false');
+                        formData.append('_template', 'table');
+                        formData.append('_subject', 'Nouveau message de C2R Website!');
+                        formData.append('_next', 'https://ryjits.github.io/C2R/thanks.html');
+
+                        fetch('https://formsubmit.co/aigoc2r@gmail.com', {
+                            method: 'POST',
+                            body: formData
+                        })
+                        .then(response => {
+                            if (response.ok) {
+                                window.location.href = 'thanks.html';
+                            } else {
+                                alert('Une erreur est survenue. Veuillez réessayer.');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            alert('Une erreur est survenue. Veuillez réessayer.');
+                        });
+
+                        return false;
+                    }
+                </script>
 
                 <!-- Réseaux sociaux -->
                 <div class="social-links" data-aos="fade-up" data-aos-delay="300">
