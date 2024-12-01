@@ -209,6 +209,26 @@
     }
 }
 
+/* Support pour le mode standalone sur iOS */
+@media screen and (max-width: 768px) {
+    @supports (padding-top: env(safe-area-inset-top)) {
+        .sidebar-right {
+            padding-top: env(safe-area-inset-top);
+        }
+        
+        /* Mode application */
+        @media all and (display-mode: standalone) {
+            .sidebar-right {
+                padding-top: env(safe-area-inset-top);
+                min-height: calc(100vh + env(safe-area-inset-top));
+            }
+            .sidebar-right .content {
+                padding-top: calc(120px + env(safe-area-inset-top));
+            }
+        }
+    }
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
     .sidebar-right {
