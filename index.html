@@ -25,6 +25,12 @@
     <link rel="stylesheet" href="css/sidebar-icons.css">
     <link rel="stylesheet" href="css/sidebar-right.css">
     <link rel="stylesheet" href="css/footer.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("Jj_1_4Jc4-NwNvWxc");
+        })();
+    </script>
 </head>
 <body>
         <!-- Animation d'ouverture -->
@@ -91,7 +97,7 @@
             <!-- Section Contact -->
             <section id="contact" class="section" data-aos="fade-left">
                 <h2 class="animate__animated animate__fadeInDown">Contact</h2>
-                <form id="contact-form" class="contact-form" data-aos="fade-up" data-aos-delay="200" onsubmit="return submitForm(event)">
+                <form id="contact-form" class="contact-form" data-aos="fade-up" data-aos-delay="200" onsubmit="return sendMail(event)">
                     <div class="form-group">
                         <input type="text" id="name" name="name" required>
                         <label for="name">Nom</label>
@@ -108,33 +114,23 @@
                 </form>
 
                 <script>
-                    function submitForm(event) {
+                    function sendMail(event) {
                         event.preventDefault();
-                        
-                        const formData = new FormData();
-                        formData.append('name', document.getElementById('name').value);
-                        formData.append('email', document.getElementById('email').value);
-                        formData.append('message', document.getElementById('message').value);
-                        formData.append('_captcha', 'false');
-                        formData.append('_template', 'table');
-                        formData.append('_subject', 'Nouveau message de C2R Website!');
-                        formData.append('_next', 'https://ryjits.github.io/C2R/thanks.html');
 
-                        fetch('https://formsubmit.co/aigoc2r@gmail.com', {
-                            method: 'POST',
-                            body: formData
-                        })
-                        .then(response => {
-                            if (response.ok) {
+                        var templateParams = {
+                            from_name: document.getElementById('name').value,
+                            from_email: document.getElementById('email').value,
+                            message: document.getElementById('message').value
+                        };
+
+                        emailjs.send('service_7ixmcwp', 'template_q7hqn3a', templateParams)
+                            .then(function(response) {
+                                console.log('SUCCESS!', response.status, response.text);
                                 window.location.href = 'thanks.html';
-                            } else {
+                            }, function(error) {
+                                console.log('FAILED...', error);
                                 alert('Une erreur est survenue. Veuillez réessayer.');
-                            }
-                        })
-                        .catch(error => {
-                            console.error('Error:', error);
-                            alert('Une erreur est survenue. Veuillez réessayer.');
-                        });
+                            });
 
                         return false;
                     }
